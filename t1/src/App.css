@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: black;
 }
 
 .App-logo {
@@ -9,21 +10,42 @@
 
 
 .season-button {
-  padding: 10px 300px 10px 300px;
+  width: 100%;
   background-color: black;
   color: red;
   font-size: 1.5em;
   font-weight: bold;
-  
+  border: 2px solid red;  
 }
 .season-button:hover {
-  background-color: darkgray;
+  background-color: red;
+  color: black;
+  cursor: pointer;
 }
 
 .episode-button {
-  width: 750px;
+  width: 100%;
   font-weight: bold;
-  
+  background-color: black;
+  border: 1px solid red;  
+  color: white;
+}
+.episode-button:hover {
+  background-color: red;
+  color: black;
+  cursor: pointer;
+}
+
+.episode-info {
+  text-align: left;  
+  color: white;
+}
+
+.season-box{
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 50%;
+  text-align: center;
 }
 
 .series-title {
