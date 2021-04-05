@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from "react"
+import Season from "./Season"
 
+function Series(props) {
 
-function BreakingSeasons() {
     const [items, setItems] = useState([]);
     useEffect(() => {
-      fetch("https://tarea-1-breaking-bad.herokuapp.com/api/episodes?series=Breaking+Bad")
+      fetch(props.link)
         .then(res => res.json())
         .then(
           (result) => {
             setItems(result);
           })
-    },[]);
+    },[props.link]);
   
     let seasons = [];
     let max = 0
@@ -22,12 +23,10 @@ function BreakingSeasons() {
       
     return (
       <div className="App">
-        <h1>Breaking Bad</h1>
+        <h1 className="series-title">{props.name}</h1>
         {seasons.map((season,index) =>(
             // style={{marginBottom:10}}
-            <div >
-            <button key="index">Temporada {index+1}</button>            
-            </div>
+            <Season seriesName={props.name} number={index+1} data={items.filter(episode => episode.season == index+1)}/>
         ))}
         
       </div>
@@ -35,4 +34,4 @@ function BreakingSeasons() {
     
 }
 
-export default BreakingSeasons;
+export default Series;

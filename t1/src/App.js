@@ -1,14 +1,13 @@
 
 import './App.css';
 import React from "react"
-import SaulSeasons from "./components/SaulSeasons"
-import BreakingSeasons from "./components/BreakingSeasons"
+import Series from "./components/Series"
 
 function App() {
   return(
   <div>
-    <SaulSeasons />
-    <BreakingSeasons />
+    <Series link="https://tarea-1-breaking-bad.herokuapp.com/api/episodes?series=Better+Call+Saul" name="Better Call Saul"/>
+    <Series link="https://tarea-1-breaking-bad.herokuapp.com/api/episodes?series=Breaking+Bad" name="Breaking Bad"/>
   </div>
   
   )
