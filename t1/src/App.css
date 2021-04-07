@@ -12,13 +12,13 @@
 .season-button {
   width: 100%;
   background-color: black;
-  color: red;
+  color: white;
   font-size: 1.5em;
   font-weight: bold;
-  border: 2px solid red;  
+  border: 2px solid white;  
 }
 .season-button:hover {
-  background-color: red;
+  background-color: white;
   color: black;
   cursor: pointer;
 }
@@ -27,12 +27,24 @@
   width: 100%;
   font-weight: bold;
   background-color: black;
-  border: 1px solid red;  
+  border: 1px solid white;  
   color: white;
 }
 .episode-button:hover {
   background-color: red;
-  color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.character-button {
+  width: max-content;
+  background-color: black;
+  border: 1px solid green;  
+  color: white;
+}
+.character-button:hover {
+  background-color: green;
+  color: white;
   cursor: pointer;
 }
 
@@ -52,10 +64,10 @@
   margin-top: 30px;
   padding: 10px 200px 10px 200px;
   background-color: black ;
-  color: red;
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-whiteuced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }

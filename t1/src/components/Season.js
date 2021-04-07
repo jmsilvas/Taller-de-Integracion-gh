@@ -1,33 +1,49 @@
 import React from "react";
 import Episode from "./Episode";
 
-function Season(props) {
-    function handleClick(text) {
-        console.log('The ' +text +' button was clicked.');
-        }
-    return(
-        <div  className="season-box">
-            <button 
-                onClick={() => handleClick(props.seriesName+props.number)} 
-                className="season-button" 
-                key={props.seriesName+props.number}>
-                    Temporada {props.number}
-            </button>    
-            {props.data.map((episode, index) =>(
-                <div>
-                <button className="episode-button" key={episode.id}>{episode.title}</button>
-                <Episode info={episode}/>
+class Season extends React.Component{
+    constructor(props){
+        super(props);  
+        this.state = {clicked: false} 
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(){
+        this.setState(state => ({
+            clicked: !state.clicked
+        }));
+    }
+    render(){
+        if (this.state.clicked) {
+            return(
+                <div  className="season-box">
+                    <button 
+                        onClick={() => this.handleClick()} 
+                        className="season-button" 
+                        key={this.props.seriesName+this.props.number}>
+                            Temporada {this.props.number}
+                    </button>    
+                    {this.props.data.map((episode, index) =>(
+                        <div>
+                        <Episode info={episode}/>
+                        </div>   
+                    )
+                    )}
                 </div>
-                
             )
-            
-            )}
-            
-        </div>
-
-
-    );
-    
+        }
+        else {
+            return(
+                <div  className="season-box">
+                    <button 
+                        onClick={() => this.handleClick()} 
+                        className="season-button" 
+                        key={this.props.seriesName+this.props.number}>
+                            Temporada {this.props.number}
+                    </button>    
+                </div>
+                )
+            };
+    }
 }
-
 export default Season;
