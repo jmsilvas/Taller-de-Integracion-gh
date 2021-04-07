@@ -1,11 +1,12 @@
 import React from "react";
+import Character from "./Character"
 
 class Episode extends React.Component {
     constructor(props){
         super(props);
         this.state={clicked: false}
-        this.handleClick = this.handleClick.bind(this)
-    }
+        this.handleClick = this.handleClick.bind(this)}
+    
     handleClick (){
         this.setState( state => ({
             clicked: !state.clicked
@@ -27,10 +28,10 @@ class Episode extends React.Component {
                     <li>N° episodio= {this.props.info.episode}</li>
                     <li>Fecha publicación= {this.props.info.air_date.split("T")[0]}</li>
                     <li>Serie= {this.props.info.series}</li>
-                    <li>Personajes:    {this.props.info.characters.map((character,index)=>
-                    <button className="character-button">{character}</button>)}</li>
-                    
+                    <li>Personajes: {this.props.info.characters.map((character,index)=>(
+                    <Character name={character}/>))}</li>
                 </ul>
+        
             </div>
         )
         
