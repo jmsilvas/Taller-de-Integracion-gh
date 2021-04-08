@@ -20,12 +20,12 @@ function Season(props) {
                 <button 
                     onClick={() => handleClick()} 
                     className="season-button" 
-                    key={props.seriesName+props.number}>
+                    key={props.seriesName+props.number+"c"}>
                         Temporada {props.number}
                 </button>    
                 {props.data.map((episode, index) =>(
                     <div>
-                    <Episode info={episode} seasonSetOpen={setOpen} openEpisode={open}/>
+                    <Episode key={episode.title} info={episode} seasonSetOpen={setOpen} sOS={props.setOpenSeason} openEpisode={open}/>
                     </div>   
                 )
                 )}

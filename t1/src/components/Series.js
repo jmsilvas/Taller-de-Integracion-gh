@@ -24,7 +24,8 @@ function Series(props) {
       <div className="App">
         <h1 className="series-title">{props.name}</h1>
         {seasons.map((season,index) =>(
-            <Season seriesName={props.name} 
+            <Season key={props.name+index}
+                    seriesName={props.name} 
                     number={index+1} 
                     open={props.openS}
                     setOpenSeason={props.setS}

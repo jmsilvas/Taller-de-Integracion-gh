@@ -13,6 +13,11 @@ export default function Character(props) {
     function handleClick() {
         setShow(!show)
     }
+
+    function handleSeasonClick(season) {
+        props.setOpenSeason(season)
+    }
+
     if (show) {
         return (
             <span>
@@ -29,9 +34,9 @@ export default function Character(props) {
                         <div>Actor(a): {info.portrayed}</div>    
                         <div>Series: {info.category}</div>
                         <div>Temporadas en Breaking Bad: </div>
-                        <div>{info.appearance.map((app,index)=>(<button className="appearances-button">{app}</button>))}</div>
+                        <div>{info.appearance.map((app,index)=>(<button onClick={() => handleSeasonClick("Breaking Bad"+app)} className="appearances-button">{app}</button>))}</div>
                         <div>Temporadas Better Call Saul:</div>
-                        <div>{info.better_call_saul_appearance.map((app,index)=>(<button className="appearances-button">{app}</button>))}</div>          
+                        <div>{info.better_call_saul_appearance.map((app,index)=>(<button onClick={() => handleSeasonClick("Better Call Saul"+app)} className="appearances-button">{app}</button>))}</div>          
                 
                     </div>
                 </div>
