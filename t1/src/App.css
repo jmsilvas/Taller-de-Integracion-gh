@@ -51,15 +51,23 @@
 }
 .character-info {
   color: white;
+  text-align: right;
+  margin-top: 50px;
 }
 
 img{
-  width: 100px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 30%;
+  border: 2px solid red;
+  color: white;
 }
 
 .episode-info {
   text-align: left;  
   color: white;
+  
 }
 
 .season-box{
@@ -103,6 +111,12 @@ img{
   right: 10px;
   top: 5px;
   border: 0px
+}
+
+.appearances-button{
+  width: min-content;
+  text-align: center;
+  font-size: 10px;
 }
 
 .close-button:hover{
