@@ -12,7 +12,6 @@ function Series(props) {
             setItems(result);
           })
     },[props.link]);
-  
     let seasons = [];
     let max = 0
     for (let i = 0; i < items.length; i++) {
@@ -25,8 +24,11 @@ function Series(props) {
       <div className="App">
         <h1 className="series-title">{props.name}</h1>
         {seasons.map((season,index) =>(
-            // style={{marginBottom:10}}
-            <Season seriesName={props.name} number={index+1} data={items.filter(episode => episode.season == index+1)}/>
+            <Season seriesName={props.name} 
+                    number={index+1} 
+                    open={props.openS}
+                    setOpenSeason={props.setS}
+                    data={items.filter(episode => episode.season === String(index+1))}/>
         ))}
         
       </div>

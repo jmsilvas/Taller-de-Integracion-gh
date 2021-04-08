@@ -1,49 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
 import Episode from "./Episode";
 
-class Season extends React.Component{
-    constructor(props){
-        super(props);  
-        this.state = {clicked: false} 
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(){
-        this.setState(state => ({
-            clicked: !state.clicked
-        }));
-    }
-    render(){
-        if (this.state.clicked) {
-            return(
-                <div  className="season-box">
-                    <button 
-                        onClick={() => this.handleClick()} 
-                        className="season-button" 
-                        key={this.props.seriesName+this.props.number}>
-                            Temporada {this.props.number}
-                    </button>    
-                    {this.props.data.map((episode, index) =>(
-                        <div>
-                        <Episode info={episode}/>
-                        </div>   
-                    )
-                    )}
-                </div>
-            )
+function Season(props) {
+    const [open, setOpen] = useState("");
+    function handleClick(){
+        setOpen("")
+        if (props.seriesName+props.number !== props.open) {
+            props.setOpenSeason(props.seriesName+props.number)
+            console.log(props.seriesName+props.number);
         }
-        else {
-            return(
-                <div  className="season-box">
-                    <button 
-                        onClick={() => this.handleClick()} 
-                        className="season-button" 
-                        key={this.props.seriesName+this.props.number}>
-                            Temporada {this.props.number}
-                    </button>    
-                </div>
-                )
-            };
+        else{
+            props.setOpenSeason("")
+
+        }
     }
+    if (props.seriesName+props.number === props.open) {
+        return(
+            <div  className="season-box">
+                <button 
+                    onClick={() => handleClick()} 
+                    className="season-button" 
+                    key={props.seriesName+props.number}>
+                        Temporada {props.number}
+                </button>    
+                {props.data.map((episode, index) =>(
+                    <div>
+                    <Episode info={episode} seasonSetOpen={setOpen} openEpisode={open}/>
+                    </div>   
+                )
+                )}
+            </div>
+        )
+    }
+    else {
+        return(
+            <div  className="season-box">
+                <button 
+                    onClick={() => handleClick()} 
+                    className="season-button" 
+                    key={props.seriesName+props.number}>
+                        Temporada {props.number}
+                </button>    
+            </div>
+            )
+        };
 }
-export default Season;
+
+export default Season
+
