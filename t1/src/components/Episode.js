@@ -27,7 +27,7 @@ function Episode(props) {
                     <li>Fecha publicación= {props.info.air_date.split("T")[0]}</li>
                     <li>Serie= {props.info.series}</li>
                     <li>Personajes: {props.info.characters.map((character,index)=>(
-                    <Character name={character} setOpenSeason={props.sOS}/>))}</li>
+                    <Character name={character} setOpenSeason={props.sOS} setOpenEpisode={props.seasonSetOpen}/>))}</li>
                 </ul>
         
             </div>

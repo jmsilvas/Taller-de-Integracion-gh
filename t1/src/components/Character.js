@@ -15,13 +15,17 @@ export default function Character(props) {
     }
 
     function handleSeasonClick(season) {
+        props.setOpenEpisode("")
         props.setOpenSeason(season)
     }
 
     if (show) {
         return (
             <span>
-            <button className="character-button" onClick={handleClick}>{props.name}</button>            
+            <button className="character-button" 
+                    onClick={handleClick}>
+                    {props.name}
+            </button>            
             <div className="pop-up-window">
                 <div className="pop-up-content">
                     <button className="close-button" onClick={handleClick}>x</button>
