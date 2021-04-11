@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import Episode from "./Episode";
+import { Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button'
 
 function Season(props) {
     const [open, setOpen] = useState("");
@@ -16,32 +18,40 @@ function Season(props) {
     }
     if (props.seriesName+props.number === props.open) {
         return(
-            <div  className="season-box">
-                <button 
-                    onClick={() => handleClick()} 
-                    className="season-button" 
-                    key={props.seriesName+props.number+"c"}>
-                        Temporada {props.number}
-                </button>    
+            <Container>
+                
+                <Button variant="primary" 
+                        size="lg" 
+                        block
+                        style={{marginTop:"10px"}}
+                        onClick={() => handleClick()} 
+                        key={props.seriesName+props.number}
+                        >
+                    Temporada {props.number}
+                </Button> 
                 {props.data.map((episode, index) =>(
                     <div>
                     <Episode key={episode.title} info={episode} seasonSetOpen={setOpen} sOS={props.setOpenSeason} openEpisode={open}/>
                     </div>   
                 )
                 )}
-            </div>
+            </Container>
         )
     }
     else {
         return(
-            <div  className="season-box">
-                <button 
-                    onClick={() => handleClick()} 
-                    className="season-button" 
-                    key={props.seriesName+props.number}>
-                        Temporada {props.number}
-                </button>    
-            </div>
+            <Container>
+                <Button variant="primary" 
+                        size="lg" 
+                        block
+                        style={{marginTop:"10px"}}
+                        onClick={() => handleClick()} 
+                        key={props.seriesName+props.number}
+                        >
+                    Temporada {props.number}
+                </Button>
+         
+            </Container>
             )
         };
 }
