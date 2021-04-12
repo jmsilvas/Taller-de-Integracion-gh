@@ -14,7 +14,7 @@ export default function NavBar(props) {
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={e => props.setSearch(e.target.value)}/>
-          <Button variant="outline-info" onClick={() => props.handleSearch(props.searchValue)}>Search</Button>
+          <Button variant="outline-info" onClick={() => props.handleSearch(props.searchValue, 0)}>Search</Button>
         </Form> 
       </Navbar>
     )

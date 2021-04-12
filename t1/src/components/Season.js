@@ -3,6 +3,7 @@ import Episode from "./Episode";
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
 
+
 function Season(props) {
     const [open, setOpen] = useState("");
     function handleClick(){
@@ -31,7 +32,7 @@ function Season(props) {
                 </Button> 
                 {props.data.map((episode, index) =>(
                     <div>
-                    <Episode key={episode.title} info={episode} seasonSetOpen={setOpen} sOS={props.setOpenSeason} openEpisode={open}/>
+                    <Episode key={episode.title+index} info={episode} seasonSetOpen={setOpen} sOS={props.setOpenSeason} openEpisode={open}/>
                     </div>   
                 )
                 )}
