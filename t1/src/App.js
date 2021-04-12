@@ -24,18 +24,18 @@ function App() {
           .then((data) => setSearchResponse(data))
   }
 
-  function handleCharClick(name) {
-    setShow(true)
-    console.log(name);
-    fetch("https://tarea-1-breaking-bad.herokuapp.com/api/characters?name="+name.replace(" ","+"))
-    .then((res) => res.json())
-    .then((data) => {setInfo(data[0])})
+  function handleCharClick(number) {
+    setInfo(searchResponse[number])
+    setShow(true)      
+   
   }
   function handleClick() {
-    setShow(!show)
+    setShow(false)
 }  
   function handleSeasonClick(season) {
     setSeason(season)
+    setShow(false)
+    setSearching(false)
   }
 
   if (searching) {
@@ -45,7 +45,7 @@ function App() {
       <NavBar setSearch={setSearch} handleSearch={handleSearch} searchValue={searchValue}/>
       <Button variant="outline-info" onClick={() => setSearching(false)}>Volver</Button>
         <h1 style={{textAlign:"center"}}>Resultados búsqueda?</h1>
-        {searchResponse.map((char,index)=>(<Button variant="primary" block onClick={() => handleCharClick(char.name)}>{char.name}</Button>))}
+        {searchResponse.map((char,index)=>(<Button variant="primary" block onClick={() => handleCharClick(index)}>{char.name}</Button>))}
       <CharPopUp handleSeasonClick={handleSeasonClick} info={info} handleClick={handleClick}/>
     </div>)
       
@@ -55,7 +55,7 @@ function App() {
       <NavBar setSearch={setSearch} handleSearch={handleSearch} searchValue={searchValue}/>
       <Button variant="outline-info" onClick={() => setSearching(false)}>Volver</Button>
         <h1 style={{textAlign:"center"}}>Resultados búsqueda</h1>
-        {searchResponse.map((char,index)=>(<Button variant="primary" block onClick={() => handleCharClick(char.name)}>{char.name}</Button>))}
+        {searchResponse.map((char,index)=>(<Button variant="primary" block onClick={() => handleCharClick(index)}>{char.name}</Button>))}
 
     </div>)
     }

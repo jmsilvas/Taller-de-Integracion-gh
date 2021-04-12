@@ -18,12 +18,12 @@ export default function CharPopUp(props) {
                                 </Container>
                             </Col>
                             <Col style={{color:"#0275d8", marginTop:"30px"}}> 
-                             <div>Nombre: {props.info.name}</div>
-                            <div>Ocupación: {props.info.occupation}</div>
-                            <div>Estado: {props.info.status}</div>
-                            <div>Apodo: {props.info.nickname}</div>
-                            <div>Actor(a): {props.info.portrayed}</div>    
-                            <div>Series: {props.info.category}</div>
+                                <div>Nombre: {props.info.name}</div>
+                                <div>Ocupación: {props.info.occupation}</div>
+                                <div>Estado: {props.info.status}</div>
+                                <div>Apodo: {props.info.nickname}</div>
+                                <div>Actor(a): {props.info.portrayed}</div>    
+                                <div>Series: {props.info.category}</div>
                             
                             </Col>
                             <Col style={{color:"#0275d8"}}>
