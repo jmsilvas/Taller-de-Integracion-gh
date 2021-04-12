@@ -31,7 +31,7 @@ function Episode(props) {
             <Container>
                 <Container style={{margin:"10px"}}>
                     <Row>
-                        <Col style={{textAlign:"center", padding:"0px"}}>
+                        <Col style={{textAlign:"center", padding:"0px", color:"black"}}>
                         <div className="ep-info" style={{fontSize:"2em", fontWeight:"bold", textAlign:"center"}}>Título: {props.info.title}</div>
                         <div className="ep-info" style={{fontSize:"2em", fontWeight:"bold", textAlign:"center"}}>{props.info.air_date.split("T")[0]}</div>
             
